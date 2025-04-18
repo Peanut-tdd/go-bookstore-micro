@@ -2,7 +2,7 @@
 
 项目包含一个api服务，调用两个rpc服务
 
-### mod先下载好goctl和protobuf
+### 安装goctl和protobuf
 ```
 brew install protoc     # protobuf安装
 protoc --version
@@ -11,7 +11,7 @@ protoc --version
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest # proto go语言插件安装
 
 
-go install github.com/zeromicro/go-zero/tools/goctl@latest
+go install github.com/zeromicro/go-zero/tools/goctl@latest #安装goctl
 goctl --version
 ```
 
