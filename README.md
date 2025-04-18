@@ -175,6 +175,6 @@ gRPC Web UI available at http://127.0.0.1:51319/
 ```
 
 浏览器打开上面返回的地址链接：
-![img.png](img.png)
-![img_1.png](img_1.png)
+![img.png](src/img.png)
+![img_1.png](src/img_1.png)
 
