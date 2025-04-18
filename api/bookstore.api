@@ -1,0 +1,39 @@
+syntax = "v1"
+
+// goctl api go --api bookstore.api --dir .
+type (
+	addReq {
+		book  string `json:"book"`
+		price int64  `json:"price"`
+	}
+	addResp {
+		ok bool `json:"ok"`
+	}
+	updateBookPriceReq {
+		BookId uint64 `json:"book_id"`
+		Price  uint64 `json:"price"`
+	}
+	updateBookResp {
+		BookId   uint64 `json:"book_id"`
+		BookName string `json:"book_name"`
+	}
+	checkReq {
+		book string `form:"book"`
+	}
+	checkResp {
+		found bool  `json:"found"`
+		price int64 `json:"price"`
+	}
+)
+
+service bookstore-api {
+	@handler AddHandler
+	post /add (addReq) returns (addResp)
+
+	@handler CheckHandler
+	get /check (checkReq) returns (checkResp)
+
+	@handler UpdateBookHandler
+	post /update (updateBookPriceReq) returns (updateBookResp)
+}
+
