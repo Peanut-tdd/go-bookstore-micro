@@ -75,7 +75,8 @@ goctl rpc protoc  --go_out=.  --go-grpc_out=.  --zrpc_out=.  check.proto   #生�
 
 ### api 服务调用rpc 服务
 1. 修改api项目配置文件api/etc/bookstore-api.yaml,添加两个rpc服务的服务发现
-```Add:
+```
+Add:
   Etcd:
     Hosts:
       - localhost:2379
