@@ -1,4 +1,4 @@
-## 基于go-zero实现的微服务项目
+## 基于go-zero实现的微服务项目demo
 
 项目包含一个api服务，调用两个rpc服务
 
@@ -128,7 +128,8 @@ Price: req.Price,
 ### 调试
 安装grpcurl 和grpcui
 [官方地址](https://github.com/fullstorydev/grpcurl)
-mac 安装
+
+mac 安装如下
 ```
 brew install grpcurl
 brew install grpcui
