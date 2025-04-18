@@ -13,7 +13,7 @@ type AddResp struct {
 }
 
 type CheckReq struct {
-	Book string `form:"book"`
+	Book string `josn:"book"`
 }
 
 type CheckResp struct {

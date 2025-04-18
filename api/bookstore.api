@@ -18,7 +18,7 @@ type (
 		BookName string `json:"book_name"`
 	}
 	checkReq {
-		book string `form:"book"`
+		book string `josn:"book"`
 	}
 	checkResp {
 		found bool  `json:"found"`
@@ -31,7 +31,7 @@ service bookstore-api {
 	post /add (addReq) returns (addResp)
 
 	@handler CheckHandler
-	get /check (checkReq) returns (checkResp)
+	post /check (checkReq) returns (checkResp)
 
 	@handler UpdateBookHandler
 	post /update (updateBookPriceReq) returns (updateBookResp)

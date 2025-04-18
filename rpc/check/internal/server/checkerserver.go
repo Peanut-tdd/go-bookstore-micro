@@ -27,3 +27,4 @@ func (s *CheckerServer) Check(ctx context.Context, in *check.CheckReq) (*check.C
 	l := logic.NewCheckLogic(ctx, s.svcCtx)
 	return l.Check(in)
 }
+
