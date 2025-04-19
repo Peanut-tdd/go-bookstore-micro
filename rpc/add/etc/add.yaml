@@ -4,5 +4,9 @@ Etcd:
   Hosts:
   - 127.0.0.1:2379
   Key: add.rpc
-
 Mode: "dev"
+
+BookDataBase:
+  DataSource: root123456@tcp(localhost:3306)/book
+
+Redis: localhost:6379

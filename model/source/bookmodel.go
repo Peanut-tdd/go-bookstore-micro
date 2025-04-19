@@ -1,6 +1,9 @@
 package source
 
-import "github.com/zeromicro/go-zero/core/stores/sqlx"
+import (
+	"context"
+	"github.com/zeromicro/go-zero/core/stores/sqlx"
+)
 
 var _ BookModel = (*customBookModel)(nil)
 
@@ -10,6 +13,7 @@ type (
 	BookModel interface {
 		bookModel
 		withSession(session sqlx.Session) BookModel
+		List(ctx context.Context, ids string) (resp []BookModel, err error)
 	}
 
 	customBookModel struct {
