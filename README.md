@@ -16,7 +16,7 @@ goctl --version
 ```
 
 
-### [etcd注册服务](ops/docker-compose.yaml)
+### [部署etcd、mysql、redis](ops/docker-compose.yaml)
 ```
 可视化工具我使用的是etcd-workbench；先前使用docker安装的etcd-keeper一直访问不通etcd服务端，可能是网络通信没弄好
 ```
