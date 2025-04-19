@@ -19,6 +19,39 @@ services:
       - app-tier
 
 
+  Mysql:
+    image: 'bitnami/mysql:latest'
+    container_name: mysql
+    environment:
+        - MYSQL_ROOT_PASSWORD=123456
+    volumes:
+      - /Users/tdd/docker/mysql/log:/var/log/mysql # 映射日志目录，宿主机:容器
+      - /Users/tdd/docker/mysql/data:/var/lib/mysql # 映射数据目录，宿主机:容器
+      - /Users/tdd/docker/mysql/conf.d:/etc/mysql/conf.d # 映射配置目录，宿主机:容器
+      - /etc/localtime:/etc/localtime:ro #
+    ports:
+      - 3306:3306
+    restart: always
+
+
+  Redis:
+    image: 'redis:latest'
+    container_name: redis
+    volumes:
+        - /Users/tdd/docker/redis/data:/data
+        - /Users/tdd/docker/redis/redis.conf:/etc/redis/redis.conf
+        - /etc/localtime:/etc/localtime:ro
+    # 以配置文件的方式启动 redis.conf
+    command: redis-server /etc/redis/redis.conf
+    ports:
+      - 6379:6379
+    restart: always
+
+
+
+
+
+
   #EtcdKeeper:
    # image: 'evildecay/etcdkeeper'
    # container_name: keeper
