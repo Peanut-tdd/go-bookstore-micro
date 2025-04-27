@@ -13,6 +13,46 @@ message addResp {
   bool ok = 1;
 }
 
+
+
+
+message batchAddReq{
+  repeated addReq add=1;
+}
+
+message batchAddResp{
+  repeated  int64  id=1;
+}
+
+
+message GetBookListReq{
+   repeated int64 id =1;
+}
+
+
+
+message Book{
+  int64  id=1;
+  string name=2;
+  int64 price=3;
+}
+
+
+
+
+message GetBookListResp{
+
+  repeated Book book =1;
+
+}
+
+
+
+
+
+
 service adder {
   rpc add(addReq) returns(addResp);
+  rpc BatchAdd(batchAddReq) returns(batchAddResp);
+  rpc GetBookList(GetBookListReq)returns(GetBookListResp);
 }

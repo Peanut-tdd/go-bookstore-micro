@@ -19,7 +19,9 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Adder_Add_FullMethodName = "/add.adder/add"
+	Adder_Add_FullMethodName         = "/add.adder/add"
+	Adder_BatchAdd_FullMethodName    = "/add.adder/BatchAdd"
+	Adder_GetBookList_FullMethodName = "/add.adder/GetBookList"
 )
 
 // AdderClient is the client API for Adder service.
@@ -27,6 +29,8 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AdderClient interface {
 	Add(ctx context.Context, in *AddReq, opts ...grpc.CallOption) (*AddResp, error)
+	BatchAdd(ctx context.Context, in *BatchAddReq, opts ...grpc.CallOption) (*BatchAddResp, error)
+	GetBookList(ctx context.Context, in *GetBookListReq, opts ...grpc.CallOption) (*GetBookListResp, error)
 }
 
 type adderClient struct {
@@ -47,11 +51,33 @@ func (c *adderClient) Add(ctx context.Context, in *AddReq, opts ...grpc.CallOpti
 	return out, nil
 }
 
+func (c *adderClient) BatchAdd(ctx context.Context, in *BatchAddReq, opts ...grpc.CallOption) (*BatchAddResp, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BatchAddResp)
+	err := c.cc.Invoke(ctx, Adder_BatchAdd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adderClient) GetBookList(ctx context.Context, in *GetBookListReq, opts ...grpc.CallOption) (*GetBookListResp, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBookListResp)
+	err := c.cc.Invoke(ctx, Adder_GetBookList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // AdderServer is the server API for Adder service.
 // All implementations must embed UnimplementedAdderServer
 // for forward compatibility.
 type AdderServer interface {
 	Add(context.Context, *AddReq) (*AddResp, error)
+	BatchAdd(context.Context, *BatchAddReq) (*BatchAddResp, error)
+	GetBookList(context.Context, *GetBookListReq) (*GetBookListResp, error)
 	mustEmbedUnimplementedAdderServer()
 }
 
@@ -64,6 +90,12 @@ type UnimplementedAdderServer struct{}
 
 func (UnimplementedAdderServer) Add(context.Context, *AddReq) (*AddResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Add not implemented")
+}
+func (UnimplementedAdderServer) BatchAdd(context.Context, *BatchAddReq) (*BatchAddResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BatchAdd not implemented")
+}
+func (UnimplementedAdderServer) GetBookList(context.Context, *GetBookListReq) (*GetBookListResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetBookList not implemented")
 }
 func (UnimplementedAdderServer) mustEmbedUnimplementedAdderServer() {}
 func (UnimplementedAdderServer) testEmbeddedByValue()               {}
@@ -104,6 +136,42 @@ func _Adder_Add_Handler(srv interface{}, ctx context.Context, dec func(interface
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Adder_BatchAdd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BatchAddReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdderServer).BatchAdd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Adder_BatchAdd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdderServer).BatchAdd(ctx, req.(*BatchAddReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Adder_GetBookList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBookListReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdderServer).GetBookList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Adder_GetBookList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdderServer).GetBookList(ctx, req.(*GetBookListReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Adder_ServiceDesc is the grpc.ServiceDesc for Adder service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -114,6 +182,14 @@ var Adder_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "add",
 			Handler:    _Adder_Add_Handler,
+		},
+		{
+			MethodName: "BatchAdd",
+			Handler:    _Adder_BatchAdd_Handler,
+		},
+		{
+			MethodName: "GetBookList",
+			Handler:    _Adder_GetBookList_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

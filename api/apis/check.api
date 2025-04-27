@@ -1,0 +1,12 @@
+syntax = "v1"
+
+
+type (
+    checkReq {
+        book string `josn:"book"`
+    }
+    checkResp {
+        found bool `json:"found"`
+        price int64 `json:"price"`
+    }
+)

@@ -1,0 +1,50 @@
+syntax = "v1"
+
+
+type (
+    addReq {
+        Book AddBook `json:"book"`
+    }
+    addResp {
+        ok bool `json:"ok"`
+    }
+    updateBookPriceReq {
+        BookId uint64 `json:"book_id"`
+        Price uint64 `json:"price"`
+    }
+    updateBookResp {
+        BookId uint64 `json:"book_id"`
+        BookName string `json:"book_name"`
+    }
+
+
+    AddBook {
+        Name string `json:"name"`
+        Price int64 `json:"price"`
+    }
+
+    BatchAddReq {
+        Books AddBook `json:"books"`
+    }
+    BatchAddResp {
+        Ids []int64 `json:"ids"`
+    }
+
+
+
+
+
+    Book {
+        Id int64 `json:"id"`
+        Name string `json:"name"`
+        Price int64 `json:"price"`
+    }
+
+    GetBookListReq {
+        Ids []int64 `json:"ids"`
+    }
+
+    GetBookListResp {
+        BookList Book `json:"list"`
+    }
+)

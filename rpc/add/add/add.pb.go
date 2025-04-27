@@ -117,6 +117,242 @@ func (x *AddResp) GetOk() bool {
 	return false
 }
 
+type BatchAddReq struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Add           []*AddReq              `protobuf:"bytes,1,rep,name=add,proto3" json:"add,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BatchAddReq) Reset() {
+	*x = BatchAddReq{}
+	mi := &file_add_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BatchAddReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BatchAddReq) ProtoMessage() {}
+
+func (x *BatchAddReq) ProtoReflect() protoreflect.Message {
+	mi := &file_add_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BatchAddReq.ProtoReflect.Descriptor instead.
+func (*BatchAddReq) Descriptor() ([]byte, []int) {
+	return file_add_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *BatchAddReq) GetAdd() []*AddReq {
+	if x != nil {
+		return x.Add
+	}
+	return nil
+}
+
+type BatchAddResp struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            []int64                `protobuf:"varint,1,rep,packed,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BatchAddResp) Reset() {
+	*x = BatchAddResp{}
+	mi := &file_add_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BatchAddResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BatchAddResp) ProtoMessage() {}
+
+func (x *BatchAddResp) ProtoReflect() protoreflect.Message {
+	mi := &file_add_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BatchAddResp.ProtoReflect.Descriptor instead.
+func (*BatchAddResp) Descriptor() ([]byte, []int) {
+	return file_add_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *BatchAddResp) GetId() []int64 {
+	if x != nil {
+		return x.Id
+	}
+	return nil
+}
+
+type GetBookListReq struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            []int64                `protobuf:"varint,1,rep,packed,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBookListReq) Reset() {
+	*x = GetBookListReq{}
+	mi := &file_add_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBookListReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBookListReq) ProtoMessage() {}
+
+func (x *GetBookListReq) ProtoReflect() protoreflect.Message {
+	mi := &file_add_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBookListReq.ProtoReflect.Descriptor instead.
+func (*GetBookListReq) Descriptor() ([]byte, []int) {
+	return file_add_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetBookListReq) GetId() []int64 {
+	if x != nil {
+		return x.Id
+	}
+	return nil
+}
+
+type Book struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Price         int64                  `protobuf:"varint,3,opt,name=price,proto3" json:"price,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Book) Reset() {
+	*x = Book{}
+	mi := &file_add_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Book) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Book) ProtoMessage() {}
+
+func (x *Book) ProtoReflect() protoreflect.Message {
+	mi := &file_add_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Book.ProtoReflect.Descriptor instead.
+func (*Book) Descriptor() ([]byte, []int) {
+	return file_add_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *Book) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *Book) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *Book) GetPrice() int64 {
+	if x != nil {
+		return x.Price
+	}
+	return 0
+}
+
+type GetBookListResp struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Book          []*Book                `protobuf:"bytes,1,rep,name=book,proto3" json:"book,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBookListResp) Reset() {
+	*x = GetBookListResp{}
+	mi := &file_add_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBookListResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBookListResp) ProtoMessage() {}
+
+func (x *GetBookListResp) ProtoReflect() protoreflect.Message {
+	mi := &file_add_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBookListResp.ProtoReflect.Descriptor instead.
+func (*GetBookListResp) Descriptor() ([]byte, []int) {
+	return file_add_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetBookListResp) GetBook() []*Book {
+	if x != nil {
+		return x.Book
+	}
+	return nil
+}
+
 var File_add_proto protoreflect.FileDescriptor
 
 const file_add_proto_rawDesc = "" +
@@ -126,9 +362,23 @@ const file_add_proto_rawDesc = "" +
 	"\x04book\x18\x01 \x01(\tR\x04book\x12\x14\n" +
 	"\x05price\x18\x02 \x01(\x03R\x05price\"\x19\n" +
 	"\aaddResp\x12\x0e\n" +
-	"\x02ok\x18\x01 \x01(\bR\x02ok2)\n" +
+	"\x02ok\x18\x01 \x01(\bR\x02ok\",\n" +
+	"\vbatchAddReq\x12\x1d\n" +
+	"\x03add\x18\x01 \x03(\v2\v.add.addReqR\x03add\"\x1e\n" +
+	"\fbatchAddResp\x12\x0e\n" +
+	"\x02id\x18\x01 \x03(\x03R\x02id\" \n" +
+	"\x0eGetBookListReq\x12\x0e\n" +
+	"\x02id\x18\x01 \x03(\x03R\x02id\"@\n" +
+	"\x04Book\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
+	"\x05price\x18\x03 \x01(\x03R\x05price\"0\n" +
+	"\x0fGetBookListResp\x12\x1d\n" +
+	"\x04book\x18\x01 \x03(\v2\t.add.BookR\x04book2\x94\x01\n" +
 	"\x05adder\x12 \n" +
-	"\x03add\x12\v.add.addReq\x1a\f.add.addRespB\aZ\x05./addb\x06proto3"
+	"\x03add\x12\v.add.addReq\x1a\f.add.addResp\x12/\n" +
+	"\bBatchAdd\x12\x10.add.batchAddReq\x1a\x11.add.batchAddResp\x128\n" +
+	"\vGetBookList\x12\x13.add.GetBookListReq\x1a\x14.add.GetBookListRespB\aZ\x05./addb\x06proto3"
 
 var (
 	file_add_proto_rawDescOnce sync.Once
@@ -142,19 +392,30 @@ func file_add_proto_rawDescGZIP() []byte {
 	return file_add_proto_rawDescData
 }
 
-var file_add_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_add_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_add_proto_goTypes = []any{
-	(*AddReq)(nil),  // 0: add.addReq
-	(*AddResp)(nil), // 1: add.addResp
+	(*AddReq)(nil),          // 0: add.addReq
+	(*AddResp)(nil),         // 1: add.addResp
+	(*BatchAddReq)(nil),     // 2: add.batchAddReq
+	(*BatchAddResp)(nil),    // 3: add.batchAddResp
+	(*GetBookListReq)(nil),  // 4: add.GetBookListReq
+	(*Book)(nil),            // 5: add.Book
+	(*GetBookListResp)(nil), // 6: add.GetBookListResp
 }
 var file_add_proto_depIdxs = []int32{
-	0, // 0: add.adder.add:input_type -> add.addReq
-	1, // 1: add.adder.add:output_type -> add.addResp
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0, // 0: add.batchAddReq.add:type_name -> add.addReq
+	5, // 1: add.GetBookListResp.book:type_name -> add.Book
+	0, // 2: add.adder.add:input_type -> add.addReq
+	2, // 3: add.adder.BatchAdd:input_type -> add.batchAddReq
+	4, // 4: add.adder.GetBookList:input_type -> add.GetBookListReq
+	1, // 5: add.adder.add:output_type -> add.addResp
+	3, // 6: add.adder.BatchAdd:output_type -> add.batchAddResp
+	6, // 7: add.adder.GetBookList:output_type -> add.GetBookListResp
+	5, // [5:8] is the sub-list for method output_type
+	2, // [2:5] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_add_proto_init() }
@@ -168,7 +429,7 @@ func file_add_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_add_proto_rawDesc), len(file_add_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
