@@ -127,6 +127,14 @@ Price: req.Price,
 
 
 ### 调试
+etcd微服务注册结果
+![img_2.png](src/img_2.png)
+
+
+
+
+
+
 安装grpcurl 和grpcui
 [官方地址](https://github.com/fullstorydev/grpcurl)
 
