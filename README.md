@@ -186,3 +186,11 @@ gRPC Web UI available at http://127.0.0.1:51319/
 ![img.png](src/img.png)
 ![img_1.png](src/img_1.png)
 
+
+
+
+
+网关项目api调用微服务结果
+![img_3.png](src/img_3.png)
+
+
