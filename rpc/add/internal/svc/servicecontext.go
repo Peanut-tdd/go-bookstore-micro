@@ -1,7 +1,7 @@
 package svc
 
 import (
-	"bookstore/model/source"
+	"bookstore/model/book"
 	"bookstore/rpc/add/internal/config"
 	"github.com/zeromicro/go-zero/core/stores/redis"
 	"github.com/zeromicro/go-zero/core/stores/sqlx"
@@ -9,16 +9,16 @@ import (
 
 type ServiceContext struct {
 	Config      config.Config
-	BookModel   source.BookModel
+	BookModel   book.BookModel
 	RedisClient *redis.Redis
 }
 
 func NewServiceContext(c config.Config) *ServiceContext {
 	sqlConn := sqlx.NewMysql(c.BookDataBase.DataSource)
-	redisConn, _ := redis.NewRedis(c.Redis)
+	redisConn, _ := redis.NewRedis(c.RedisConfig)
 	return &ServiceContext{
 		Config:      c,
-		BookModel:   source.NewBookModel(sqlConn),
+		BookModel:   book.NewBookModel(sqlConn),
 		RedisClient: redisConn,
 	}
 }

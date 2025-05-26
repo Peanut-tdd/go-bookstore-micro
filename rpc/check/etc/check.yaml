@@ -6,4 +6,8 @@ Etcd:
   Key: check.rpc
 
 
+RedisConfig:
+  Host: 127.0.0.1
+  Port: 6379
+  Type: node
 

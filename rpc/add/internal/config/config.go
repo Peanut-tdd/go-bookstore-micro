@@ -11,5 +11,5 @@ type Config struct {
 	BookDataBase struct {
 		DataSource string
 	}
-	Redis redis.RedisConf
+	RedisConfig redis.RedisConf `json:"RedisConfig"`
 }

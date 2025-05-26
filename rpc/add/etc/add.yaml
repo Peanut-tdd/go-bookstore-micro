@@ -9,4 +9,9 @@ Mode: "dev"
 BookDataBase:
   DataSource: root123456@tcp(localhost:3306)/book
 
-Redis: localhost:6379
+
+
+RedisConfig:
+  Host: localhost
+  Port: 6379
+

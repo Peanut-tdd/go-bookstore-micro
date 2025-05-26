@@ -31,8 +31,8 @@ func (l *AddLogic) Add(req *types.AddReq) (resp *types.AddResp, err error) {
 
 	//调用微服务
 	resp1, err := l.svcCtx.Adder.Add(l.ctx, &add.AddReq{
-		Book:  req.Book,
-		Price: req.Price,
+		Book:  req.Book.Name,
+		Price: req.Book.Price,
 	})
 
 	fmt.Printf("resp:%+v, err:%+v", resp1, err)
